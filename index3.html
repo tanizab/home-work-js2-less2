@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача №3 Переделанная домашка less1</title>
+    <style>
+        body {
+            font-size: 16px;
+            font-family: sans-serif;
+            padding: 50px 100px;
+        }
+    </style>
+    <script>
+        const getRandom = function(max = 10, min = 0) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+    </script>
+</head>
+<body>
+<h1>Домашка</h1>
+<div></div>
+<!--№3 Переделать задачу с прошлого занятия (угадай число)
+На странице должны отображаться введенные числа, которые уже угадал пользователь(уже были названы) и результат угадывания
+(20)
+1
+холодно
+14
+тепло
+19
+горячо
+21
+горячо
+25 тепло
+и т.д.-->
+<script>
+    alert(`Привет! Давай сыграем в "Отгадай число" от 0 до 20. У тебя пять попыток.`);
+
+    let num = getRandom(20, 0);
+    let userNum, number;
+    let attempts = 5;
+    let str = document.body.childNodes[3];
+
+    while(attempts) {
+        userNum = +prompt("Введите число от 0 до 20");
+        number = Math.abs(num - userNum);
+
+        if (number === 0) {
+            str.innerHTML += "Молодец, угадал!";
+        } else if (number <= 5) {
+            str.innerHTML += "Горячо!";
+        } else if (number > 5 && number <= 10) {
+            str.innerHTML += "Тепло!";
+        } else {
+            str.innerHTML += "Холодно!";
+        }
+        attempts--;
+    }
+    alert(`${ number === 0 ? "Ты победитель!" : "Не расстраивайся в следующий раз получится!"}`);
+
+</script>
+</body>
+</html>
