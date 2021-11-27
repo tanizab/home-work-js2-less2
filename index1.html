@@ -23,34 +23,17 @@
     а - 2
     с... -->
     <script>
-        // let userWord = prompt(`Привет! Напиши любое слово.`);
-        let userWord  = "Прокрастинация";
+        let userWord = prompt(`Привет! Напиши любое слово.`);
+        // let userWord  = "Прокрастинация";
         userWord = userWord.toUpperCase();
         let span = document.body.childNodes[1].childNodes[1];
         span.innerText = userWord;
 
 
-        let counter = {};
-        for(let i = 0; i < userWord.length; i++){
-           //console.log(userWord[i]);
-
-           let letter = userWord[i];
-           if(counter[letter]){
-                counter[letter]++;
-           }else {
-               counter[letter] = 1;
-           }
-        }
+        
         //console.log(counter);
 
-        let pCount = document.body.childNodes[3];
-
-        for (let key in counter) {
-            console.log(key);
-            console.log(counter[key]);
-
-            pCount.innerHTML += `<div class="letter">${key} - ${counter[key]}</div>`;
-        }
+        
 
         let abc = [];
         for(let k = 0; k < userWord.length; k++){
@@ -59,7 +42,24 @@
         console.log(abc.sort());
 
         abc = abc.sort();
+        let counter = {};
+        for(let i = 0; i < abc.length; i++){
 
+           let letter = abc[i];
+           if(counter[letter]){
+                counter[letter]++;
+           }else {
+               counter[letter] = 1;
+           }
+        }
+        let pCount = document.body.childNodes[3];
+
+        for (let key in counter) {
+            console.log(key);
+            console.log(counter[key]);
+
+            pCount.innerHTML += `<div class="letter">${key} - ${counter[key]}</div>`;
+        }
 
     </script>
 </body>
