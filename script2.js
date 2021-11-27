@@ -13,14 +13,21 @@ let num = getRandom(10, 2);
 //let tableTd = document.body.childNodes[1].childNodes[1].childNodes[1];
 let tBody = document.body.childNodes[1].childNodes[1];
 
-for(let i = 2; i <= num; i++){
+console.log(tBody, num);
+let str = "";
+for(let i = 0; i <= num; i++) {
     console.log(i);
     //tableTr.innerHTML += `<tr>${i}</tr>`;
-    tBody.innerHTML += `${i}<tr><td></td></tr>`;
+    str += `<tr>`;
 
-    /*for(let j = 2; j <= num; j++){
+    for(let j = 0; j <= num; j++) {
         console.log(j);
-        tableTd.innerHTML += `<tr>${j}</tr>`;
-    }*/
+        str += `<td>${j}</td>`;
+    }
+    str += `</tr>`;
 }
+
+console.log(str);
+
+tBody.innerHTML += str;
 
